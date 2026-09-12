@@ -1,6 +1,6 @@
 <div align="center">
 
-  <img src="./assets/hero.svg?v=2" alt="Akshat Joshi" width="100%" />
+  <img src="./assets/hero.svg?v=3" alt="Akshat Joshi" width="100%" />
 
   <br/><br/>
 
