@@ -2,7 +2,7 @@
 
   <!-- Hero: Obsidian dark aesthetic, laser border beam, kinetic orbital rings & platinum shimmer -->
   <a href="https://github.com/Akshat96af">
-    <img src="./assets/hero.svg" alt="Akshat Joshi" width="100%" />
+    <img src="./assets/hero.svg?v=2" alt="Akshat Joshi" width="100%" />
   </a>
 
   <br/><br/>
