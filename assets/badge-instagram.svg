@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 142 38" width="142" height="38" fill="none">
+  <defs>
+    <linearGradient id="ig-bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#141620"/>
+      <stop offset="100%" stop-color="#0A0B10"/>
+    </linearGradient>
+    <linearGradient id="ig-grad" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#FFDC80"/>
+      <stop offset="25%" stop-color="#F77737"/>
+      <stop offset="50%" stop-color="#FD1D1D"/>
+      <stop offset="75%" stop-color="#E1306C"/>
+      <stop offset="100%" stop-color="#C13584"/>
+    </linearGradient>
+    <style>
+      .btn-text {
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Inter', Roboto, sans-serif;
+        font-size: 13px;
+        font-weight: 600;
+        fill: #F1F5F9;
+        letter-spacing: -0.2px;
+      }
+    </style>
+  </defs>
+  <rect x="0.5" y="0.5" width="141" height="37" rx="18.5" fill="url(#ig-bg)" stroke="rgba(255, 255, 255, 0.12)" stroke-width="1"/>
+  <!-- Instagram Camera Icon -->
+  <g transform="translate(14, 9)">
+    <rect x="1" y="1" width="18" height="18" rx="5" stroke="url(#ig-grad)" stroke-width="1.8"/>
+    <circle cx="10" cy="10" r="4.2" stroke="url(#ig-grad)" stroke-width="1.8"/>
+    <circle cx="15.2" cy="4.8" r="1" fill="url(#ig-grad)"/>
+  </g>
+  <text class="btn-text" x="43" y="23.5">Instagram</text>
+  <!-- Arrow -->
+  <path d="M118 19 L124 19 M121 16 L124 19 L121 22" stroke="#64748B" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
