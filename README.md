@@ -16,7 +16,9 @@
 
   <p align="center">
     <a href="https://github.com/Akshat96af/Everything-Built-So-Far"><img src="./assets/badge-projects.svg" alt="Projects" height="36" /></a>
+    &nbsp;&nbsp;
     <a href="https://instagram.com/_.a.k.s.h.a.t._"><img src="./assets/badge-instagram.svg" alt="Instagram" height="36" /></a>
+    &nbsp;&nbsp;
     <a href="#"><img src="./assets/badge-linkedin.svg" alt="LinkedIn" height="36" /></a>
   </p>
 
