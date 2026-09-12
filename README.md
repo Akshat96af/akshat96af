@@ -1,8 +1,6 @@
 <div align="center">
 
-  <a href="https://github.com/Akshat96af">
-    <img src="./assets/hero.svg?v=2" alt="Akshat Joshi" width="100%" />
-  </a>
+  <img src="./assets/hero.svg?v=2" alt="Akshat Joshi" width="100%" />
 
   <br/><br/>
 
