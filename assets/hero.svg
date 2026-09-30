@@ -1,585 +1,381 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 280" width="100%" height="100%" fill="none">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 320" width="100%" fill="none" role="img" aria-labelledby="t d">
+  <title id="t">Akshat Joshi</title>
+  <desc id="d">Crafting interfaces that feel alive. A terminal runs git add, commit and push, and a new square lights up on the contribution graph.</desc>
   <defs>
-    <!-- Premium Fonts -->
+    <!-- System fonts only: GitHub serves README SVGs as images, so web fonts never load. -->
     <style>
-      @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@700;800;900&amp;family=Space+Grotesk:wght@500;600;700&amp;family=Inter:wght@400;500;600&amp;display=swap');
+      .sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI Variable Display', 'Segoe UI', Inter, Roboto, 'Helvetica Neue', Arial, sans-serif; }
+      .mono { font-family: ui-monospace, 'SF Mono', 'Cascadia Code', 'JetBrains Mono', Menlo, Consolas, monospace; }
 
-      .hero-title {
-        font-family: 'Plus Jakarta Sans', 'Space Grotesk', -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Inter', sans-serif;
-        font-size: 50px;
-        font-weight: 900;
-        letter-spacing: -2px;
-      }
-      .hero-sub {
-        font-family: 'Space Grotesk', -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Inter', sans-serif;
-        font-size: 15.5px;
-        font-weight: 500;
-        letter-spacing: -0.2px;
-      }
-      .font-mono {
-        font-family: 'SF Mono', 'Fira Code', 'JetBrains Mono', Consolas, monospace;
-      }
-      .tag-text {
-        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Inter', Roboto, sans-serif;
-        font-size: 12px;
-        font-weight: 500;
-        letter-spacing: -0.1px;
-      }
+      /* One 10s timeline: add, commit, push, contribution lights up */
+      .term  { animation: termFade 10s linear infinite; }
+      .type  { transform-box: fill-box; transform-origin: left center; }
+      .t1    { animation: t1 10s steps(11) infinite; }
+      .t2    { animation: t2 10s steps(35) infinite; }
+      .t4    { animation: t4 10s steps(22) infinite; }
+      .a3    { animation: a3 10s linear infinite; }
+      .a5    { animation: a5 10s linear infinite; }
+      .a5b   { animation: a5b 10s linear infinite; }
+      .a6    { animation: a6 10s linear infinite; }
+      .fill  { transform-box: fill-box; transform-origin: left center; animation: fill 10s cubic-bezier(.4,0,.2,1) infinite; }
+      .cell-on   { animation: cellOn 10s linear infinite; }
+      .cell-ping { transform-box: fill-box; transform-origin: center; animation: cellPing 10s cubic-bezier(0,0,.2,1) infinite; }
+      .toast { animation: toast 10s cubic-bezier(.2,.8,.2,1) infinite; }
+      .caret { animation: blink 1s steps(1) infinite; }
 
-      /* ================= ADVANCED BACKGROUND ANIMATIONS ================= */
+      @keyframes termFade { 0%, 93% { opacity: 1; } 97%, 100% { opacity: 0; } }
+      @keyframes t1  { 0%, 3%  { transform: scaleX(0); } 9%, 100%  { transform: scaleX(1); } }
+      @keyframes t2  { 0%, 13% { transform: scaleX(0); } 29%, 100% { transform: scaleX(1); } }
+      @keyframes t4  { 0%, 36% { transform: scaleX(0); } 46%, 100% { transform: scaleX(1); } }
+      @keyframes a3  { 0%, 31.9% { opacity: 0; } 32%, 100% { opacity: 1; } }
+      @keyframes a5  { 0%, 49.9% { opacity: 0; } 50%, 100% { opacity: 1; } }
+      @keyframes a5b { 0%, 59.9% { opacity: 0; } 60%, 100% { opacity: 1; } }
+      @keyframes a6  { 0%, 62.9% { opacity: 0; } 63%, 100% { opacity: 1; } }
+      @keyframes fill { 0%, 50% { transform: scaleX(0); } 60%, 100% { transform: scaleX(1); } }
+      @keyframes cellOn { 0%, 65% { opacity: 0; } 67%, 100% { opacity: 1; } }
+      @keyframes cellPing {
+        0%, 65%   { transform: scale(1); opacity: 0; }
+        65.5%     { opacity: .9; }
+        80%, 100% { transform: scale(3.4); opacity: 0; }
+      }
+      @keyframes toast {
+        0%, 64%   { transform: translateY(12px); opacity: 0; }
+        69%, 88%  { transform: translateY(0); opacity: 1; }
+        93%, 100% { transform: translateY(4px); opacity: 0; }
+      }
+      @keyframes blink { 0%, 50% { opacity: 1; } 50.01%, 100% { opacity: 0; } }
 
-      /* Volumetric Plasma Waves */
-      @keyframes plasmaWave1 {
-        0%, 100% { transform: translate(0px, 0px) scale(1); opacity: 0.45; }
-        33% { transform: translate(140px, 35px) scale(1.22); opacity: 0.7; }
-        66% { transform: translate(60px, -25px) scale(0.92); opacity: 0.35; }
+      /* Ambient */
+      .float { animation: float 7s ease-in-out infinite; }
+      .drift-a { animation: driftA 16s ease-in-out infinite alternate; transform-origin: 170px 30px; }
+      .drift-b { animation: driftB 19s ease-in-out infinite alternate; transform-origin: 760px 180px; }
+      .drift-c { animation: driftC 13s ease-in-out infinite alternate; transform-origin: 470px 340px; }
+      .glyph   { animation: rise 12s linear infinite; }
+      .spot    { animation: spot 18s ease-in-out infinite; }
+      .ping  { transform-box: fill-box; transform-origin: center; animation: ping 2.4s cubic-bezier(0,0,.2,1) infinite; }
+      .sheen-move { animation: sheen 7s cubic-bezier(.4,0,.2,1) infinite; }
+      @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-5px); } }
+      @keyframes driftA { 0% { transform: translate(0, 0) scale(1); } 50% { transform: translate(130px, 40px) scale(1.15); } 100% { transform: translate(40px, 80px) scale(.9); } }
+      @keyframes driftB { 0% { transform: translate(0, 0) scale(1); } 50% { transform: translate(-150px, -60px) scale(1.2); } 100% { transform: translate(-40px, 30px) scale(.95); } }
+      @keyframes driftC { 0% { transform: translate(0, 0) scale(1); } 50% { transform: translate(230px, -50px) scale(1.25); } 100% { transform: translate(-130px, -20px) scale(1.1); } }
+      @keyframes rise { 0% { transform: translateY(26px); opacity: 0; } 25%, 70% { opacity: 1; } 100% { transform: translateY(-38px); opacity: 0; } }
+      @keyframes spot {
+        0%, 100% { transform: translate(200px, 80px); }
+        20% { transform: translate(470px, 250px); }
+        40% { transform: translate(780px, 90px); }
+        60% { transform: translate(880px, 260px); }
+        80% { transform: translate(380px, 50px); }
       }
-      @keyframes plasmaWave2 {
-        0%, 100% { transform: translate(0px, 0px) scale(1); opacity: 0.35; }
-        50% { transform: translate(-160px, -35px) scale(1.3); opacity: 0.6; }
-      }
-      @keyframes plasmaWave3 {
-        0%, 100% { transform: scale(0.95); opacity: 0.25; }
-        50% { transform: scale(1.35) translate(40px, 20px); opacity: 0.5; }
-      }
-      .plasma-1 { animation: plasmaWave1 11s cubic-bezier(0.4, 0, 0.2, 1) infinite; }
-      .plasma-2 { animation: plasmaWave2 13s cubic-bezier(0.4, 0, 0.2, 1) infinite; }
-      .plasma-3 { animation: plasmaWave3 9s cubic-bezier(0.4, 0, 0.2, 1) infinite; }
+      @keyframes ping  { 0% { transform: scale(1); opacity: .7; } 80%, 100% { transform: scale(3); opacity: 0; } }
+      @keyframes sheen { 0%, 55% { transform: translateX(-260px); } 100% { transform: translateX(560px); } }
 
-      /* Hypnotic Graviton Ripple Shockwaves */
-      @keyframes gravitonExpand {
-        0% { transform: scale(0.4); opacity: 0.7; }
-        60% { opacity: 0.3; }
-        100% { transform: scale(1.8); opacity: 0; }
+      @media (prefers-reduced-motion: reduce) {
+        * { animation: none !important; }
+        .type, .fill { transform: none; }
+        .a3, .a5, .a5b, .a6, .cell-on, .toast { opacity: 1; }
+        .cell-ping { opacity: 0; }
       }
-      .graviton-1 { animation: gravitonExpand 6.5s cubic-bezier(0.16, 1, 0.3, 1) infinite; transform-origin: 750px 140px; }
-      .graviton-2 { animation: gravitonExpand 6.5s cubic-bezier(0.16, 1, 0.3, 1) infinite 2.15s; transform-origin: 750px 140px; }
-      .graviton-3 { animation: gravitonExpand 6.5s cubic-bezier(0.16, 1, 0.3, 1) infinite 4.3s; transform-origin: 750px 140px; }
-
-      /* Relativistic Warp-Speed Particle Streaks */
-      @keyframes warpShoot1 {
-        0% { transform: translateX(-240px); opacity: 0; }
-        15% { opacity: 0.85; }
-        75% { opacity: 0.85; }
-        100% { transform: translateX(1150px); opacity: 0; }
-      }
-      @keyframes warpShoot2 {
-        0% { transform: translateX(-300px); opacity: 0; }
-        20% { opacity: 0.7; }
-        70% { opacity: 0.7; }
-        100% { transform: translateX(1150px); opacity: 0; }
-      }
-      @keyframes warpShoot3 {
-        0% { transform: translateX(-180px); opacity: 0; }
-        15% { opacity: 0.9; }
-        80% { opacity: 0.9; }
-        100% { transform: translateX(1150px); opacity: 0; }
-      }
-      .warp-1 { animation: warpShoot1 3.2s linear infinite; }
-      .warp-2 { animation: warpShoot2 4.4s linear infinite 1.2s; }
-      .warp-3 { animation: warpShoot3 2.7s linear infinite 0.5s; }
-      .warp-4 { animation: warpShoot1 3.8s linear infinite 2.1s; }
-      .warp-5 { animation: warpShoot2 4.9s linear infinite 3.0s; }
-      .warp-6 { animation: warpShoot3 3.5s linear infinite 1.7s; }
-
-      /* Aurora Harmonic Undulation */
-      @keyframes auroraWave {
-        0%, 100% { transform: translateY(0px) scaleY(1); opacity: 0.22; }
-        50% { transform: translateY(-10px) scaleY(1.18); opacity: 0.45; }
-      }
-      .aurora-flow-1 { animation: auroraWave 8s ease-in-out infinite; transform-origin: center; }
-      .aurora-flow-2 { animation: auroraWave 10s ease-in-out infinite reverse 1.5s; transform-origin: center; }
-
-      /* Constellation Circuit Wire Flow */
-      @keyframes circuitSignal {
-        0% { stroke-dashoffset: 240; }
-        100% { stroke-dashoffset: -240; }
-      }
-      .circuit-wire {
-        stroke-dasharray: 6 90;
-        animation: circuitSignal 6s linear infinite;
-      }
-
-
-      /* Dual Laser Perimeter Beams */
-      @keyframes laserTravel1 {
-        0% { stroke-dashoffset: 0; }
-        100% { stroke-dashoffset: 2400; }
-      }
-      @keyframes laserTravel2 {
-        0% { stroke-dashoffset: 1200; }
-        100% { stroke-dashoffset: 3600; }
-      }
-      .laser-beam-1 {
-        stroke-dasharray: 260 940;
-        animation: laserTravel1 9s linear infinite;
-      }
-      .laser-beam-2 {
-        stroke-dasharray: 260 940;
-        animation: laserTravel2 9s linear infinite;
-      }
-
-      /* Quantum Background Grid Floating Nodes */
-      @keyframes quantumNodePulse {
-        0%, 100% { transform: translateY(0px) scale(1); opacity: 0.3; }
-        50% { transform: translateY(-8px) scale(1.4); opacity: 0.85; }
-      }
-      .q-node-1 { animation: quantumNodePulse 4.2s ease-in-out infinite; }
-      .q-node-2 { animation: quantumNodePulse 5.1s ease-in-out infinite 1.6s; }
-      .q-node-3 { animation: quantumNodePulse 3.8s ease-in-out infinite 0.9s; }
-
-      /* ================= 3D HOLOGRAPHIC PRISMATIC QUANTUM CORE ================= */
-
-      /* Central Faceted Prism 3D Breathing and Gyro Tilt */
-      @keyframes prismMorph {
-        0%, 100% { transform: rotate(0deg) scale(1); filter: drop-shadow(0 0 10px rgba(97, 218, 251, 0.6)); }
-        50% { transform: rotate(180deg) scale(1.15); filter: drop-shadow(0 0 24px rgba(129, 140, 248, 0.85)); }
-      }
-      @keyframes coreBeating {
-        0%, 100% { transform: scale(1); opacity: 0.85; }
-        50% { transform: scale(1.4); opacity: 1; }
-      }
-      .prism-faceted-core {
-        animation: prismMorph 12s cubic-bezier(0.4, 0, 0.2, 1) infinite;
-        transform-origin: 750px 140px;
-      }
-      .prism-beating-nucleus {
-        animation: coreBeating 2.8s ease-in-out infinite;
-        transform-origin: 750px 140px;
-      }
-
-      /* Multi-Planar Gyroscopic Astrolabe Orbits */
-      @keyframes gyroOrbit1 {
-        0% { transform: rotate(0deg); }
-        100% { transform: rotate(360deg); }
-      }
-      @keyframes gyroOrbit2 {
-        0% { transform: rotate(55deg); }
-        100% { transform: rotate(415deg); }
-      }
-      @keyframes gyroOrbit3 {
-        0% { transform: rotate(-45deg); }
-        100% { transform: rotate(315deg); }
-      }
-      @keyframes gyroOrbit4 {
-        0% { transform: rotate(90deg); }
-        100% { transform: rotate(450deg); }
-      }
-      .gyro-ring-1 { animation: gyroOrbit1 16s linear infinite; transform-origin: 750px 140px; }
-      .gyro-ring-2 { animation: gyroOrbit2 20s linear infinite reverse; transform-origin: 750px 140px; }
-      .gyro-ring-3 { animation: gyroOrbit3 18s linear infinite; transform-origin: 750px 140px; }
-      .gyro-ring-4 { animation: gyroOrbit4 26s linear infinite reverse; transform-origin: 750px 140px; }
-
-      /* Orbiting Satellite Photons */
-      @keyframes photonGlow {
-        0%, 100% { opacity: 0.6; filter: drop-shadow(0 0 4px #22D3EE); }
-        50% { opacity: 1; filter: drop-shadow(0 0 10px #FFFFFF); }
-      }
-      .photon-node { animation: photonGlow 2.5s ease-in-out infinite; }
-
-      /* Diamond Sparkle Pulse in Header */
-      @keyframes diamondGlow {
-        0%, 100% { transform: scale(1) rotate(0deg); opacity: 0.85; filter: drop-shadow(0 0 3px #818CF8); }
-        50% { transform: scale(1.25) rotate(45deg); opacity: 1; filter: drop-shadow(0 0 8px #67E8F9); }
-      }
-      .sparkle-icon {
-        animation: diamondGlow 3.6s ease-in-out infinite;
-        transform-origin: 8px 8px;
-      }
-
-      /* Twinkle Starpoints */
-      @keyframes starPulse {
-        0%, 100% { opacity: 0.2; transform: scale(0.8); }
-        50% { opacity: 0.85; transform: scale(1.25); }
-      }
-      .star-a { animation: starPulse 3.2s ease-in-out infinite; transform-origin: center; }
-      .star-b { animation: starPulse 4.2s ease-in-out infinite 1.8s; transform-origin: center; }
     </style>
 
-    <!-- Deep Luxury Obsidian Gradient -->
-    <linearGradient id="bg-grad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#07080C"/>
-      <stop offset="50%" stop-color="#0C0E16"/>
-      <stop offset="100%" stop-color="#050609"/>
-    </linearGradient>
+    <clipPath id="card"><rect width="960" height="320" rx="20"/></clipPath>
 
+    <!-- Light -->
+    <radialGradient id="glow-a" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(170 30) scale(420 260)">
+      <stop stop-color="#4F46E5" stop-opacity=".30"/><stop offset="1" stop-color="#4F46E5" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="glow-b" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(760 180) scale(300 220)">
+      <stop stop-color="#2EA043" stop-opacity=".20"/><stop offset="1" stop-color="#2EA043" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="glow-c" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(470 340) scale(300 140)">
+      <stop stop-color="#A855F7" stop-opacity=".14"/><stop offset="1" stop-color="#A855F7" stop-opacity="0"/>
+    </radialGradient>
 
-    <!-- Platinum Chrome Metallic Shimmer for Name -->
-    <linearGradient id="name-specular" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" stop-color="#FFFFFF"/>
-      <stop offset="25%" stop-color="#F8FAFC"/>
-      <stop offset="42%" stop-color="#C7D2FE"/>
-      <stop offset="50%" stop-color="#67E8F9"/>
-      <stop offset="58%" stop-color="#F472B6"/>
-      <stop offset="75%" stop-color="#FFFFFF"/>
-      <stop offset="100%" stop-color="#FFFFFF"/>
-      <animate attributeName="x1" values="-100%; 100%; -100%" dur="7s" repeatCount="indefinite"/>
-      <animate attributeName="x2" values="0%; 200%; 0%" dur="7s" repeatCount="indefinite"/>
-    </linearGradient>
-
-    <!-- Subheading Holographic Light Sweep Shimmer -->
-    <linearGradient id="sub-light-sweep" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" stop-color="#94A3B8"/>
-      <stop offset="38%" stop-color="#94A3B8"/>
-      <stop offset="46%" stop-color="#38BDF8"/>
-      <stop offset="50%" stop-color="#FFFFFF"/>
-      <stop offset="54%" stop-color="#818CF8"/>
-      <stop offset="62%" stop-color="#94A3B8"/>
-      <stop offset="100%" stop-color="#94A3B8"/>
-      <animate attributeName="x1" values="-100%; 150%" dur="4.5s" repeatCount="indefinite"/>
-      <animate attributeName="x2" values="0%; 250%" dur="4.5s" repeatCount="indefinite"/>
-    </linearGradient>
-
-    <!-- Prismatic Core Facet Gradients -->
-    <linearGradient id="facet-top" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.95"/>
-      <stop offset="100%" stop-color="#67E8F9" stop-opacity="0.75"/>
-    </linearGradient>
-    <linearGradient id="facet-bottom" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#38BDF8" stop-opacity="0.85"/>
-      <stop offset="100%" stop-color="#6366F1" stop-opacity="0.9"/>
-    </linearGradient>
-    <linearGradient id="facet-left" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#A5B4FC" stop-opacity="0.9"/>
-      <stop offset="100%" stop-color="#4338CA" stop-opacity="0.8"/>
-    </linearGradient>
-    <linearGradient id="facet-right" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#F472B6" stop-opacity="0.85"/>
-      <stop offset="100%" stop-color="#9333EA" stop-opacity="0.8"/>
-    </linearGradient>
-
-    <!-- Gyro Orbit Laser Gradients -->
-    <linearGradient id="gyro-cyan" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#22D3EE" stop-opacity="0"/>
-      <stop offset="50%" stop-color="#67E8F9" stop-opacity="0.9"/>
-      <stop offset="100%" stop-color="#22D3EE" stop-opacity="0"/>
-    </linearGradient>
-    <linearGradient id="gyro-violet" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#818CF8" stop-opacity="0"/>
-      <stop offset="50%" stop-color="#C084FC" stop-opacity="0.85"/>
-      <stop offset="100%" stop-color="#818CF8" stop-opacity="0"/>
-    </linearGradient>
-    <linearGradient id="gyro-rose" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#F43F5E" stop-opacity="0"/>
-      <stop offset="50%" stop-color="#FB7185" stop-opacity="0.85"/>
-      <stop offset="100%" stop-color="#F43F5E" stop-opacity="0"/>
-    </linearGradient>
-
-    <!-- Diamond Sparkle Gradient -->
-    <linearGradient id="sparkle-grad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#67E8F9"/>
-      <stop offset="50%" stop-color="#818CF8"/>
-      <stop offset="100%" stop-color="#C084FC"/>
-    </linearGradient>
-
-    <!-- Dual Laser Gradients -->
-    <linearGradient id="laser-1" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#6366F1" stop-opacity="0"/>
-      <stop offset="40%" stop-color="#818CF8" stop-opacity="0.9"/>
-      <stop offset="60%" stop-color="#22D3EE" stop-opacity="1"/>
-      <stop offset="100%" stop-color="#6366F1" stop-opacity="0"/>
-    </linearGradient>
-    <linearGradient id="laser-2" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#EC4899" stop-opacity="0"/>
-      <stop offset="50%" stop-color="#F43F5E" stop-opacity="0.9"/>
-      <stop offset="75%" stop-color="#A855F7" stop-opacity="1"/>
-      <stop offset="100%" stop-color="#EC4899" stop-opacity="0"/>
-    </linearGradient>
-
-    <!-- Fine Matrix Grid -->
-    <pattern id="matrix-grid" width="28" height="28" patternUnits="userSpaceOnUse">
-      <path d="M 28 0 L 0 0 0 28" fill="none" stroke="rgba(255, 255, 255, 0.022)" stroke-width="1"/>
-      <circle cx="0" cy="0" r="0.8" fill="rgba(255, 255, 255, 0.06)"/>
+    <!-- Dot grid, faded toward the edges -->
+    <pattern id="dots" width="22" height="22" patternUnits="userSpaceOnUse">
+      <circle cx="11" cy="11" r=".9" fill="#fff" fill-opacity=".10"/>
     </pattern>
+    <radialGradient id="fade" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(700 150) scale(460 240)">
+      <stop stop-color="#fff"/><stop offset="1" stop-color="#fff" stop-opacity="0"/>
+    </radialGradient>
+    <pattern id="dots-hi" width="22" height="22" patternUnits="userSpaceOnUse">
+      <circle cx="11" cy="11" r="1.2" fill="#A5B4FC" fill-opacity=".6"/>
+    </pattern>
+    <radialGradient id="spot-grad" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="scale(170 120)">
+      <stop stop-color="#fff"/><stop offset="1" stop-color="#fff" stop-opacity="0"/>
+    </radialGradient>
+    <mask id="spot-mask"><rect class="spot" x="-180" y="-130" width="360" height="260" fill="url(#spot-grad)"/></mask>
+    <mask id="grid-mask"><rect width="960" height="320" fill="url(#fade)"/></mask>
 
-    <!-- Blurs and Filters -->
-    <filter id="plasma-blur-lg" x="-50%" y="-50%" width="200%" height="200%">
-      <feGaussianBlur stdDeviation="65"/>
+    <!-- Film grain -->
+    <filter id="grain" x="0" y="0" width="100%" height="100%">
+      <feTurbulence type="fractalNoise" baseFrequency=".85" numOctaves="2" stitchTiles="stitch"/>
+      <feColorMatrix values="0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 .055 0"/>
     </filter>
-    <filter id="plasma-blur-md" x="-50%" y="-50%" width="200%" height="200%">
-      <feGaussianBlur stdDeviation="45"/>
+
+    <linearGradient id="top-edge" x1="80" x2="880" y1="0" y2="0" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#fff" stop-opacity="0"/>
+      <stop offset=".3" stop-color="#A5B4FC" stop-opacity=".5"/>
+      <stop offset=".7" stop-color="#7EE787" stop-opacity=".35"/>
+      <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+    </linearGradient>
+
+    <!-- Type -->
+    <linearGradient id="name-fill" x1="0" y1="100" x2="0" y2="156" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFFFFF"/><stop offset="1" stop-color="#C7D2FE"/>
+    </linearGradient>
+    <linearGradient id="sheen" x1="0" x2="120" y1="0" y2="0" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#fff" stop-opacity="0"/>
+      <stop offset=".5" stop-color="#fff" stop-opacity=".95"/>
+      <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+    </linearGradient>
+    <clipPath id="name-clip">
+      <text class="sans" x="56" y="152" font-size="60" font-weight="800" letter-spacing="-1.8">Akshat Joshi</text>
+    </clipPath>
+    <linearGradient id="alive" x1="0" x2="1" y1="0" y2="0">
+      <stop stop-color="#67E8F9"/><stop offset=".5" stop-color="#A5B4FC"/><stop offset="1" stop-color="#F0ABFC"/>
+      <animate attributeName="x1" values="0;-1;0" dur="6s" repeatCount="indefinite"/>
+      <animate attributeName="x2" values="1;0;1" dur="6s" repeatCount="indefinite"/>
+    </linearGradient>
+
+    <!-- Terminal -->
+    <filter id="win-shadow" x="-30%" y="-30%" width="160%" height="170%">
+      <feDropShadow dx="0" dy="18" stdDeviation="20" flood-color="#000" flood-opacity=".55"/>
     </filter>
-    <filter id="core-aura-filter" x="-60%" y="-60%" width="220%" height="220%">
-      <feGaussianBlur stdDeviation="24"/>
+    <filter id="soft-shadow" x="-30%" y="-40%" width="160%" height="200%">
+      <feDropShadow dx="0" dy="8" stdDeviation="9" flood-color="#000" flood-opacity=".5"/>
     </filter>
-    <filter id="text-backlight" x="-30%" y="-30%" width="160%" height="160%">
-      <feDropShadow dx="0" dy="0" stdDeviation="18" flood-color="#818CF8" flood-opacity="0.38"/>
-    </filter>
-
-    <!-- Graviton Ripple Gradient -->
-    <linearGradient id="graviton-grad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#22D3EE" stop-opacity="0.75"/>
-      <stop offset="50%" stop-color="#818CF8" stop-opacity="0.45"/>
-      <stop offset="100%" stop-color="#C084FC" stop-opacity="0.1"/>
+    <linearGradient id="win-stroke" x1="0" y1="0" x2="0" y2="220" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#fff" stop-opacity=".16"/><stop offset="1" stop-color="#fff" stop-opacity=".05"/>
     </linearGradient>
-
-    <!-- Relativistic Warp Speed Gradients -->
-    <linearGradient id="warp-cyan" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" stop-color="#22D3EE" stop-opacity="0"/>
-      <stop offset="35%" stop-color="#06B6D4" stop-opacity="0.5"/>
-      <stop offset="85%" stop-color="#67E8F9" stop-opacity="0.95"/>
-      <stop offset="100%" stop-color="#FFFFFF" stop-opacity="1"/>
+    <linearGradient id="push-bar" x1="0" y1="0" x2="1" y2="0">
+      <stop stop-color="#238636"/><stop offset="1" stop-color="#3FB950"/>
     </linearGradient>
-    <linearGradient id="warp-violet" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" stop-color="#6366F1" stop-opacity="0"/>
-      <stop offset="40%" stop-color="#818CF8" stop-opacity="0.5"/>
-      <stop offset="85%" stop-color="#C084FC" stop-opacity="0.95"/>
-      <stop offset="100%" stop-color="#FFFFFF" stop-opacity="1"/>
-    </linearGradient>
-
-    <!-- Aurora Harmonic Wave Gradient -->
-    <linearGradient id="aurora-grad" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" stop-color="#6366F1" stop-opacity="0"/>
-      <stop offset="25%" stop-color="#38BDF8" stop-opacity="0.3"/>
-      <stop offset="50%" stop-color="#818CF8" stop-opacity="0.35"/>
-      <stop offset="75%" stop-color="#C084FC" stop-opacity="0.25"/>
-      <stop offset="100%" stop-color="#22D3EE" stop-opacity="0"/>
-    </linearGradient>
-
-    <!-- Cyber Perspective Floor Gradient -->
-    <linearGradient id="floor-grad" x1="0%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%" stop-color="#6366F1" stop-opacity="0"/>
-      <stop offset="100%" stop-color="#22D3EE" stop-opacity="0.16"/>
-    </linearGradient>
+    <!-- Typing reveals (sized a little past each line) -->
+    <clipPath id="c1"><rect class="type t1" x="18" y="48" width="84"  height="16"/></clipPath>
+    <clipPath id="c2"><rect class="type t2" x="18" y="68" width="244" height="16"/></clipPath>
+    <clipPath id="c4"><rect class="type t4" x="18" y="108" width="158" height="16"/></clipPath>
   </defs>
 
-  <!-- ================= BASE CANVAS ================= -->
-  <rect x="1" y="1" width="918" height="278" rx="22" fill="url(#bg-grad)"/>
-  <rect x="1" y="1" width="918" height="278" rx="22" fill="url(#matrix-grid)"/>
+  <g clip-path="url(#card)">
+    <!-- ============ BACKGROUND ============ -->
+    <rect width="960" height="320" fill="#07080D"/>
+    <g class="drift-a"><rect x="-400" y="-300" width="1760" height="920" fill="url(#glow-a)"/></g>
+    <g class="drift-b"><rect x="-400" y="-300" width="1760" height="920" fill="url(#glow-b)"/></g>
+    <g class="drift-c"><rect x="-400" y="-300" width="1760" height="920" fill="url(#glow-c)"/></g>
+    <rect width="960" height="320" fill="url(#dots)" mask="url(#grid-mask)"/>
+    <rect width="960" height="320" fill="url(#dots-hi)" mask="url(#spot-mask)"/>
 
-  <!-- ================= 3D PERSPECTIVE CYBER FLOOR HORIZON ================= -->
-  <g opacity="0.45">
-    <line x1="0" y1="228" x2="920" y2="228" stroke="url(#floor-grad)" stroke-width="0.8"/>
-    <line x1="0" y1="250" x2="920" y2="250" stroke="url(#floor-grad)" stroke-width="1"/>
-    <line x1="0" y1="270" x2="920" y2="270" stroke="url(#floor-grad)" stroke-width="1.2"/>
-    <!-- Converging Perspective Vanishing Rays -->
-    <line x1="460" y1="205" x2="110" y2="280" stroke="url(#floor-grad)" stroke-width="0.8"/>
-    <line x1="460" y1="205" x2="270" y2="280" stroke="url(#floor-grad)" stroke-width="0.8"/>
-    <line x1="460" y1="205" x2="460" y2="280" stroke="url(#floor-grad)" stroke-width="0.8"/>
-    <line x1="460" y1="205" x2="650" y2="280" stroke="url(#floor-grad)" stroke-width="0.8"/>
-    <line x1="460" y1="205" x2="810" y2="280" stroke="url(#floor-grad)" stroke-width="0.8"/>
-  </g>
+    <!-- Code glyphs drifting upward -->
+    <g class="mono" opacity=".22">
+      <text class="glyph" x="24" y="40" font-size="13" fill="#A5B4FC" style="animation-duration:13s;animation-delay:-2s">{ }</text>
+      <text class="glyph" x="150" y="300" font-size="12" fill="#67E8F9" style="animation-duration:11s;animation-delay:-7s">&lt;/&gt;</text>
+      <text class="glyph" x="300" y="48" font-size="12" fill="#7EE787" style="animation-duration:14s;animation-delay:-9s">=&gt;</text>
+      <text class="glyph" x="420" y="300" font-size="11" fill="#7EE787" style="animation-duration:12s;animation-delay:-4s">git</text>
+      <text class="glyph" x="470" y="70" font-size="12" fill="#F0ABFC" style="animation-duration:15s;animation-delay:-11s">( )</text>
+      <text class="glyph" x="548" y="168" font-size="12" fill="#A5B4FC" style="animation-duration:12s;animation-delay:-1s">[ ]</text>
+      <text class="glyph" x="250" y="290" font-size="11" fill="#A5B4FC" style="animation-duration:13s;animation-delay:-5s">&amp;&amp;</text>
+      <text class="glyph" x="565" y="300" font-size="11" fill="#3FB950" style="animation-duration:10s;animation-delay:-8s">+1</text>
+      <text class="glyph" x="40" y="280" font-size="12" fill="#67E8F9" style="animation-duration:14s;animation-delay:-12s">::</text>
+      <text class="glyph" x="520" y="40" font-size="13" fill="#67E8F9" style="animation-duration:11s;animation-delay:-3s">#</text>
+      <text class="glyph" x="640" y="30" font-size="12" fill="#F0ABFC" style="animation-duration:12s;animation-delay:-6s">*</text>
+      <text class="glyph" x="930" y="120" font-size="13" fill="#A5B4FC" style="animation-duration:13s;animation-delay:-10s">~</text>
+      <text class="glyph" x="930" y="290" font-size="13" fill="#7EE787" style="animation-duration:11s;animation-delay:-2.5s">;</text>
+      <text class="glyph" x="380" y="92" font-size="11" fill="#F0ABFC" style="animation-duration:16s;animation-delay:-13s">@</text>
+      <text class="glyph" x="690" y="305" font-size="12" fill="#67E8F9" style="animation-duration:14s;animation-delay:-6.5s">{ }</text>
+    </g>
+    <rect width="960" height="320" filter="url(#grain)"/>
 
-  <!-- ================= AMBIENT PLASMA MESH ================= -->
-  <g class="plasma-1">
-    <circle cx="180" cy="75" r="125" fill="#6366F1" filter="url(#plasma-blur-lg)"/>
-  </g>
-  <g class="plasma-2">
-    <circle cx="480" cy="180" r="115" fill="#06B6D4" filter="url(#plasma-blur-md)"/>
-  </g>
-  <g class="plasma-3">
-    <circle cx="750" cy="140" r="145" fill="#818CF8" opacity="0.45" filter="url(#plasma-blur-lg)"/>
-  </g>
-
-  <!-- ================= AURORA CHROMATIC FLUX RIBBONS ================= -->
-  <path class="aurora-flow-1" d="M 0 145 C 240 95, 480 195, 720 125 S 920 155, 920 155" fill="none" stroke="url(#aurora-grad)" stroke-width="2.2"/>
-  <path class="aurora-flow-2" d="M 0 170 C 260 215, 500 110, 740 180 S 920 140, 920 140" fill="none" stroke="url(#aurora-grad)" stroke-width="1.6"/>
-
-  <!-- ================= HYPNOTIC GRAVITATIONAL SPACE-TIME RIPPLES ================= -->
-  <g class="graviton-1">
-    <ellipse cx="750" cy="140" rx="130" ry="60" stroke="url(#graviton-grad)" stroke-width="1.2" stroke-dasharray="8 14" fill="none"/>
-  </g>
-  <g class="graviton-2">
-    <ellipse cx="750" cy="140" rx="130" ry="60" stroke="url(#graviton-grad)" stroke-width="1.2" stroke-dasharray="8 14" fill="none"/>
-  </g>
-  <g class="graviton-3">
-    <ellipse cx="750" cy="140" rx="130" ry="60" stroke="url(#graviton-grad)" stroke-width="1.2" stroke-dasharray="8 14" fill="none"/>
-  </g>
-
-  <!-- ================= RELATIVISTIC LIGHT SPEED PARTICLE STREAKS ================= -->
-  <g opacity="0.85">
-    <rect class="warp-1" y="36" width="130" height="1.4" rx="0.7" fill="url(#warp-cyan)"/>
-    <rect class="warp-2" y="76" width="180" height="1.6" rx="0.8" fill="url(#warp-violet)"/>
-    <rect class="warp-3" y="112" width="100" height="1.2" rx="0.6" fill="url(#warp-cyan)"/>
-    <rect class="warp-4" y="174" width="160" height="1.5" rx="0.75" fill="url(#warp-violet)"/>
-    <rect class="warp-5" y="218" width="140" height="1.4" rx="0.7" fill="url(#warp-cyan)"/>
-    <rect class="warp-6" y="250" width="90" height="1" rx="0.5" fill="url(#warp-violet)"/>
-  </g>
-
-  <!-- ================= CONSTELLATION NEURAL CIRCUIT MESH ================= -->
-  <g opacity="0.45">
-    <path d="M 280 85 L 390 55 L 510 95 L 430 180 L 570 170 L 640 100" fill="none" stroke="rgba(129, 140, 248, 0.16)" stroke-width="1"/>
-    <path class="circuit-wire" d="M 280 85 L 390 55 L 510 95 L 430 180 L 570 170 L 640 100" fill="none" stroke="#22D3EE" stroke-width="1.4"/>
-    <!-- Node Junctions -->
-    <circle cx="280" cy="85" r="2" fill="#818CF8"/>
-    <circle cx="390" cy="55" r="2.5" fill="#67E8F9"/>
-    <circle cx="510" cy="95" r="2" fill="#A78BFA"/>
-    <circle cx="430" cy="180" r="2.5" fill="#38BDF8"/>
-    <circle cx="570" cy="170" r="2" fill="#818CF8"/>
-    <circle cx="640" cy="100" r="2.5" fill="#67E8F9"/>
-  </g>
-
-
-  <!-- ================= QUANTUM FLOATING GRID NODES ================= -->
-  <g class="q-node-1" transform="translate(360, 90)">
-    <circle cx="0" cy="0" r="2.5" fill="#67E8F9"/>
-    <circle cx="0" cy="0" r="6" stroke="rgba(103, 232, 249, 0.3)" stroke-width="1"/>
-  </g>
-  <g class="q-node-2" transform="translate(520, 160)">
-    <circle cx="0" cy="0" r="2" fill="#818CF8"/>
-    <circle cx="0" cy="0" r="5" stroke="rgba(129, 140, 248, 0.3)" stroke-width="1"/>
-  </g>
-  <g class="q-node-3" transform="translate(240, 190)">
-    <circle cx="0" cy="0" r="2" fill="#F472B6"/>
-  </g>
-
-  <!-- ================= CYBER HUD CORNER ACCENTS ================= -->
-  <!-- Top Left HUD Bracket -->
-  <g transform="translate(24, 20)" opacity="0.4">
-    <path d="M 0 16 L 0 0 L 16 0" stroke="#67E8F9" stroke-width="1.4" fill="none"/>
-    <circle cx="0" cy="0" r="1.5" fill="#67E8F9"/>
-  </g>
-  <!-- Top Right HUD Bracket -->
-  <g transform="translate(896, 20)" opacity="0.4">
-    <path d="M 0 16 L 0 0 L -16 0" stroke="#67E8F9" stroke-width="1.4" fill="none"/>
-    <circle cx="0" cy="0" r="1.5" fill="#67E8F9"/>
-  </g>
-  <!-- Bottom Left HUD Bracket -->
-  <g transform="translate(24, 256)" opacity="0.35">
-    <path d="M 0 -14 L 0 0 L 14 0" stroke="#818CF8" stroke-width="1.4" fill="none"/>
-  </g>
-  <!-- Bottom Right HUD Bracket -->
-  <g transform="translate(896, 256)" opacity="0.35">
-    <path d="M 0 -14 L 0 0 L -14 0" stroke="#67E8F9" stroke-width="1.4" fill="none"/>
-  </g>
-
-  <!-- Static Outer Rim -->
-  <rect x="1" y="1" width="918" height="278" rx="22" stroke="rgba(255, 255, 255, 0.08)" stroke-width="1.2" fill="none"/>
-
-  <!-- Dual Chasing Laser Border Beams -->
-  <rect class="laser-beam-1" x="1" y="1" width="918" height="278" rx="22" stroke="url(#laser-1)" stroke-width="2" fill="none"/>
-  <rect class="laser-beam-2" x="1" y="1" width="918" height="278" rx="22" stroke="url(#laser-2)" stroke-width="2" fill="none"/>
-
-  <!-- ================= 3D HOLOGRAPHIC PRISMATIC QUANTUM CORE (Right Side) ================= -->
-  <g transform="translate(0, 0)">
-    <!-- Volumetric Ambient Light Aura -->
-    <circle cx="750" cy="140" r="65" fill="#6366F1" opacity="0.35" filter="url(#core-aura-filter)"/>
-    <circle cx="750" cy="140" r="38" fill="#22D3EE" opacity="0.25" filter="url(#core-aura-filter)"/>
-
-    <!-- Gyro Astrolabe Ring 1 (Horizon Plane - Cyan) -->
-    <g class="gyro-ring-1">
-      <ellipse cx="750" cy="140" rx="106" ry="42" stroke="url(#gyro-cyan)" stroke-width="1.8" fill="none"/>
-      <!-- Orbiting Photons -->
-      <circle class="photon-node" cx="856" cy="140" r="3.8" fill="#FFFFFF"/>
-      <circle cx="644" cy="140" r="2.6" fill="#22D3EE" opacity="0.8"/>
+    <!-- ============ LEFT: IDENTITY ============ -->
+    <g transform="translate(0 -20)">
+    <!-- Name + passing sheen -->
+    <text class="sans" x="56" y="152" font-size="60" font-weight="800" letter-spacing="-1.8" fill="url(#name-fill)">Akshat Joshi</text>
+    <g clip-path="url(#name-clip)" opacity=".85">
+      <rect class="sheen-move" x="0" y="96" width="120" height="70" fill="url(#sheen)" transform="skewX(-20)"/>
     </g>
 
-    <!-- Gyro Astrolabe Ring 2 (Ascending 55 deg - Electric Violet) -->
-    <g class="gyro-ring-2">
-      <ellipse cx="750" cy="140" rx="106" ry="42" stroke="url(#gyro-violet)" stroke-width="1.8" fill="none"/>
-      <!-- Orbiting Photons -->
-      <circle class="photon-node" cx="856" cy="140" r="3.8" fill="#FFFFFF"/>
-      <circle cx="644" cy="140" r="2.6" fill="#A78BFA" opacity="0.8"/>
+    <!-- Tagline -->
+    <text class="sans" x="57" y="190" font-size="18" font-weight="500" letter-spacing="-.2" fill="#94A3B8">Crafting interfaces that feel <tspan font-weight="700" fill="url(#alive)">alive</tspan></text>
+
+    <!-- Stack -->
+    <g class="sans" font-size="12" font-weight="500" fill="#E2E8F0">
+      <g transform="translate(56 218)">
+        <rect x=".5" y=".5" width="69" height="27" rx="13.5" fill="#fff" fill-opacity=".035" stroke="#fff" stroke-opacity=".09"/>
+        <circle cx="14" cy="14" r="3" fill="#61DAFB"/><text x="24" y="18">React</text>
+      </g>
+      <g transform="translate(134 218)">
+        <rect x=".5" y=".5" width="95" height="27" rx="13.5" fill="#fff" fill-opacity=".035" stroke="#fff" stroke-opacity=".09"/>
+        <circle cx="14" cy="14" r="3" fill="#3B82F6"/><text x="24" y="18">TypeScript</text>
+      </g>
+      <g transform="translate(238 218)">
+        <rect x=".5" y=".5" width="93" height="27" rx="13.5" fill="#fff" fill-opacity=".035" stroke="#fff" stroke-opacity=".09"/>
+        <circle cx="14" cy="14" r="3" fill="#FACC15"/><text x="24" y="18">JavaScript</text>
+      </g>
+      <g transform="translate(340 218)">
+        <rect x=".5" y=".5" width="106" height="27" rx="13.5" fill="#fff" fill-opacity=".035" stroke="#fff" stroke-opacity=".09"/>
+        <circle cx="14" cy="14" r="3" fill="#F97316"/><text x="24" y="18">HTML &amp; CSS</text>
+      </g>
+      <g transform="translate(455 218)">
+        <rect x=".5" y=".5" width="93" height="27" rx="13.5" fill="#fff" fill-opacity=".035" stroke="#fff" stroke-opacity=".09"/>
+        <circle cx="14" cy="14" r="3" fill="#A855F7"/><text x="24" y="18">Extensions</text>
+      </g>
     </g>
 
-    <!-- Gyro Astrolabe Ring 3 (Descending -45 deg - Rose/Cyan) -->
-    <g class="gyro-ring-3">
-      <ellipse cx="750" cy="140" rx="106" ry="42" stroke="url(#gyro-rose)" stroke-width="1.8" fill="none"/>
-      <!-- Orbiting Photon -->
-      <circle class="photon-node" cx="856" cy="140" r="3.5" fill="#FFFFFF"/>
     </g>
 
-    <!-- Gyro Astrolabe Ring 4 (Outer Precision Dashed Meridian - 90 deg) -->
-    <g class="gyro-ring-4" opacity="0.45">
-      <circle cx="750" cy="140" r="118" stroke="rgba(255, 255, 255, 0.25)" stroke-width="1" stroke-dasharray="3 7" fill="none"/>
-      <!-- Cardinal Alignment Pointers -->
-      <circle cx="750" cy="22" r="2.5" fill="#67E8F9"/>
-      <circle cx="750" cy="258" r="2.5" fill="#67E8F9"/>
-      <circle cx="632" cy="140" r="2.5" fill="#818CF8"/>
-      <circle cx="868" cy="140" r="2.5" fill="#818CF8"/>
+    <!-- ============ RIGHT: GIT PUSH TERMINAL ============ -->
+    <g transform="translate(596 42)">
+      <g class="float">
+        <!-- Window -->
+        <g filter="url(#win-shadow)"><rect width="316" height="220" rx="14" fill="#0D1117"/></g>
+        <path d="M14 .5h288a13.5 13.5 0 0 1 13.5 13.5V34H.5V14A13.5 13.5 0 0 1 14 .5Z" fill="#161B22"/>
+        <path d="M.5 34.5h315" stroke="#30363D"/>
+        <rect x=".5" y=".5" width="315" height="219" rx="13.5" stroke="url(#win-stroke)"/>
+
+        <!-- Chrome -->
+        <circle cx="18" cy="17" r="4.5" fill="#FF5F57" fill-opacity=".85"/>
+        <circle cx="32" cy="17" r="4.5" fill="#FEBC2E" fill-opacity=".85"/>
+        <circle cx="46" cy="17" r="4.5" fill="#28C840" fill-opacity=".85"/>
+        <text class="mono" x="158" y="21" font-size="10.5" fill="#8B949E" text-anchor="middle">~/projects</text>
+        <rect x="244" y="9" width="58" height="16" rx="8" fill="#fff" fill-opacity=".05" stroke="#fff" stroke-opacity=".08"/>
+        <g transform="translate(252 11)" stroke="#7EE787" stroke-width="1.2" fill="none" stroke-linecap="round">
+          <circle cx="2.5" cy="2.5" r="1.6"/><circle cx="2.5" cy="9.5" r="1.6"/><circle cx="8" cy="3.5" r="1.6"/>
+          <path d="M2.5 4.1v3.8M8 5.1c0 2.2-5.5 1.6-5.5 2.8"/>
+        </g>
+        <text class="mono" x="266" y="20.5" font-size="10" fill="#E6EDF3">main</text>
+
+        <!-- Session -->
+        <g class="term mono" font-size="11" fill="#E6EDF3">
+          <text x="18" y="60" clip-path="url(#c1)"><tspan fill="#7EE787">$</tspan> git add <tspan fill="#8B949E">.</tspan></text>
+          <text x="18" y="80" clip-path="url(#c2)"><tspan fill="#7EE787">$</tspan> git commit -m <tspan fill="#A5D6FF">"feat: new project"</tspan></text>
+          <text class="a3" x="18" y="98" fill="#8B949E">[main <tspan fill="#FFA657">3f9c2a1</tspan>] feat: new project</text>
+          <text x="18" y="120" clip-path="url(#c4)"><tspan fill="#7EE787">$</tspan> git push origin <tspan fill="#D2A8FF">main</tspan></text>
+          <g class="a5">
+            <text x="18" y="138" fill="#8B949E">Writing objects:</text>
+            <rect x="132" y="131" width="100" height="5" rx="2.5" fill="#21262D"/>
+            <rect class="fill" x="132" y="131" width="100" height="5" rx="2.5" fill="url(#push-bar)"/>
+            <text class="a5b" x="240" y="138" fill="#E6EDF3">100%</text>
+          </g>
+          <g class="a6">
+            <path d="M19 152l2.6 2.6 5-5.2" stroke="#3FB950" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+            <text x="32" y="156">main -&gt; main <tspan fill="#8B949E">github.com/Akshat96af</tspan></text>
+            <rect class="caret" x="18" y="163" width="6.5" height="2" fill="#E6EDF3"/>
+          </g>
+        </g>
+
+        <!-- Contribution graph: the push adds today's square -->
+        <g transform="translate(18 174)">
+          <rect x="0" y="0" width="7" height="7" rx="1.5" fill="#161B22"/>
+          <rect x="0" y="9" width="7" height="7" rx="1.5" fill="#161B22"/>
+          <rect x="0" y="18" width="7" height="7" rx="1.5" fill="#006D32"/>
+          <rect x="9" y="0" width="7" height="7" rx="1.5" fill="#161B22"/>
+          <rect x="9" y="9" width="7" height="7" rx="1.5" fill="#0E4429"/>
+          <rect x="9" y="18" width="7" height="7" rx="1.5" fill="#0E4429"/>
+          <rect x="18" y="0" width="7" height="7" rx="1.5" fill="#161B22"/>
+          <rect x="18" y="9" width="7" height="7" rx="1.5" fill="#0E4429"/>
+          <rect x="18" y="18" width="7" height="7" rx="1.5" fill="#161B22"/>
+          <rect x="27" y="0" width="7" height="7" rx="1.5" fill="#0E4429"/>
+          <rect x="27" y="9" width="7" height="7" rx="1.5" fill="#161B22"/>
+          <rect x="27" y="18" width="7" height="7" rx="1.5" fill="#161B22"/>
+          <rect x="36" y="0" width="7" height="7" rx="1.5" fill="#0E4429"/>
+          <rect x="36" y="9" width="7" height="7" rx="1.5" fill="#26A641"/>
+          <rect x="36" y="18" width="7" height="7" rx="1.5" fill="#161B22"/>
+          <rect x="45" y="0" width="7" height="7" rx="1.5" fill="#161B22"/>
+          <rect x="45" y="9" width="7" height="7" rx="1.5" fill="#006D32"/>
+          <rect x="45" y="18" width="7" height="7" rx="1.5" fill="#39D353"/>
+          <rect x="54" y="0" width="7" height="7" rx="1.5" fill="#0E4429"/>
+          <rect x="54" y="9" width="7" height="7" rx="1.5" fill="#0E4429"/>
+          <rect x="54" y="18" width="7" height="7" rx="1.5" fill="#39D353"/>
+          <rect x="63" y="0" width="7" height="7" rx="1.5" fill="#161B22"/>
+          <rect x="63" y="9" width="7" height="7" rx="1.5" fill="#26A641"/>
+          <rect x="63" y="18" width="7" height="7" rx="1.5" fill="#161B22"/>
+          <rect x="72" y="0" width="7" height="7" rx="1.5" fill="#161B22"/>
+          <rect x="72" y="9" width="7" height="7" rx="1.5" fill="#161B22"/>
+          <rect x="72" y="18" width="7" height="7" rx="1.5" fill="#161B22"/>
+          <rect x="81" y="0" width="7" height="7" rx="1.5" fill="#26A641"/>
+          <rect x="81" y="9" width="7" height="7" rx="1.5" fill="#161B22"/>
+          <rect x="81" y="18" width="7" height="7" rx="1.5" fill="#0E4429"/>
+          <rect x="90" y="0" width="7" height="7" rx="1.5" fill="#006D32"/>
+          <rect x="90" y="9" width="7" height="7" rx="1.5" fill="#0E4429"/>
+          <rect x="90" y="18" width="7" height="7" rx="1.5" fill="#0E4429"/>
+          <rect x="99" y="0" width="7" height="7" rx="1.5" fill="#161B22"/>
+          <rect x="99" y="9" width="7" height="7" rx="1.5" fill="#161B22"/>
+          <rect x="99" y="18" width="7" height="7" rx="1.5" fill="#161B22"/>
+          <rect x="108" y="0" width="7" height="7" rx="1.5" fill="#006D32"/>
+          <rect x="108" y="9" width="7" height="7" rx="1.5" fill="#0E4429"/>
+          <rect x="108" y="18" width="7" height="7" rx="1.5" fill="#161B22"/>
+          <rect x="117" y="0" width="7" height="7" rx="1.5" fill="#0E4429"/>
+          <rect x="117" y="9" width="7" height="7" rx="1.5" fill="#0E4429"/>
+          <rect x="117" y="18" width="7" height="7" rx="1.5" fill="#161B22"/>
+          <rect x="126" y="0" width="7" height="7" rx="1.5" fill="#26A641"/>
+          <rect x="126" y="9" width="7" height="7" rx="1.5" fill="#006D32"/>
+          <rect x="126" y="18" width="7" height="7" rx="1.5" fill="#161B22"/>
+          <rect x="135" y="0" width="7" height="7" rx="1.5" fill="#0E4429"/>
+          <rect x="135" y="9" width="7" height="7" rx="1.5" fill="#0E4429"/>
+          <rect x="135" y="18" width="7" height="7" rx="1.5" fill="#26A641"/>
+          <rect x="144" y="0" width="7" height="7" rx="1.5" fill="#006D32"/>
+          <rect x="144" y="9" width="7" height="7" rx="1.5" fill="#161B22"/>
+          <rect x="144" y="18" width="7" height="7" rx="1.5" fill="#39D353"/>
+          <rect x="153" y="0" width="7" height="7" rx="1.5" fill="#161B22"/>
+          <rect x="153" y="9" width="7" height="7" rx="1.5" fill="#0E4429"/>
+          <rect x="153" y="18" width="7" height="7" rx="1.5" fill="#006D32"/>
+          <rect x="162" y="0" width="7" height="7" rx="1.5" fill="#161B22"/>
+          <rect x="162" y="9" width="7" height="7" rx="1.5" fill="#0E4429"/>
+          <rect x="162" y="18" width="7" height="7" rx="1.5" fill="#161B22"/>
+          <rect x="171" y="0" width="7" height="7" rx="1.5" fill="#006D32"/>
+          <rect x="171" y="9" width="7" height="7" rx="1.5" fill="#006D32"/>
+          <rect x="171" y="18" width="7" height="7" rx="1.5" fill="#0E4429"/>
+          <rect x="180" y="0" width="7" height="7" rx="1.5" fill="#26A641"/>
+          <rect x="180" y="9" width="7" height="7" rx="1.5" fill="#161B22"/>
+          <rect x="180" y="18" width="7" height="7" rx="1.5" fill="#006D32"/>
+          <rect x="189" y="0" width="7" height="7" rx="1.5" fill="#0E4429"/>
+          <rect x="189" y="9" width="7" height="7" rx="1.5" fill="#0E4429"/>
+          <rect x="189" y="18" width="7" height="7" rx="1.5" fill="#0E4429"/>
+          <rect x="198" y="0" width="7" height="7" rx="1.5" fill="#26A641"/>
+          <rect x="198" y="9" width="7" height="7" rx="1.5" fill="#39D353"/>
+          <rect x="198" y="18" width="7" height="7" rx="1.5" fill="#0E4429"/>
+          <rect x="207" y="0" width="7" height="7" rx="1.5" fill="#006D32"/>
+          <rect x="207" y="9" width="7" height="7" rx="1.5" fill="#161B22"/>
+          <rect x="207" y="18" width="7" height="7" rx="1.5" fill="#006D32"/>
+          <rect x="216" y="0" width="7" height="7" rx="1.5" fill="#006D32"/>
+          <rect x="216" y="9" width="7" height="7" rx="1.5" fill="#39D353"/>
+          <rect x="216" y="18" width="7" height="7" rx="1.5" fill="#26A641"/>
+          <rect x="225" y="0" width="7" height="7" rx="1.5" fill="#161B22"/>
+          <rect x="225" y="9" width="7" height="7" rx="1.5" fill="#0E4429"/>
+          <rect x="225" y="18" width="7" height="7" rx="1.5" fill="#006D32"/>
+          <rect x="234" y="0" width="7" height="7" rx="1.5" fill="#161B22"/>
+          <rect x="234" y="9" width="7" height="7" rx="1.5" fill="#0E4429"/>
+          <rect x="234" y="18" width="7" height="7" rx="1.5" fill="#161B22"/>
+          <rect x="243" y="0" width="7" height="7" rx="1.5" fill="#161B22"/>
+          <rect x="243" y="9" width="7" height="7" rx="1.5" fill="#161B22"/>
+          <rect x="243" y="18" width="7" height="7" rx="1.5" fill="#006D32"/>
+          <rect x="252" y="0" width="7" height="7" rx="1.5" fill="#161B22"/>
+          <rect x="252" y="9" width="7" height="7" rx="1.5" fill="#161B22"/>
+          <rect x="252" y="18" width="7" height="7" rx="1.5" fill="#0E4429"/>
+          <rect x="261" y="0" width="7" height="7" rx="1.5" fill="#26A641"/>
+          <rect x="261" y="9" width="7" height="7" rx="1.5" fill="#161B22"/>
+          <rect x="261" y="18" width="7" height="7" rx="1.5" fill="#0E4429"/>
+          <rect x="270" y="0" width="7" height="7" rx="1.5" fill="#0E4429"/>
+          <rect x="270" y="9" width="7" height="7" rx="1.5" fill="#26A641"/>
+          <rect x="270" y="18" width="7" height="7" rx="1.5" fill="#161B22" stroke="#fff" stroke-opacity=".06" stroke-width=".5"/>
+          <rect class="cell-ping" x="270" y="18" width="7" height="7" rx="1.5" stroke="#39D353" stroke-width="1"/>
+          <rect class="cell-on" x="270" y="18" width="7" height="7" rx="1.5" fill="#39D353"/>
+        </g>
+      </g>
     </g>
 
-    <!-- Central 3D Faceted Holographic Prismatic Diamond -->
-    <g class="prism-faceted-core">
-      <!-- Top Facet -->
-      <polygon points="750,114 774,136 750,140 726,136" fill="url(#facet-top)" stroke="rgba(255,255,255,0.7)" stroke-width="0.8"/>
-      <!-- Bottom Facet -->
-      <polygon points="750,166 774,144 750,140 726,144" fill="url(#facet-bottom)" stroke="rgba(255,255,255,0.7)" stroke-width="0.8"/>
-      <!-- Left Facet -->
-      <polygon points="726,136 750,140 726,144 710,140" fill="url(#facet-left)" stroke="rgba(255,255,255,0.6)" stroke-width="0.8"/>
-      <!-- Right Facet -->
-      <polygon points="774,136 790,140 774,144 750,140" fill="url(#facet-right)" stroke="rgba(255,255,255,0.6)" stroke-width="0.8"/>
-
-      <!-- Inner Diamond Specular Core -->
-      <polygon points="750,124 766,140 750,156 734,140" fill="rgba(255,255,255,0.4)" stroke="#FFFFFF" stroke-width="1"/>
+    <!-- Toast -->
+    <g transform="translate(710 262)">
+      <g class="toast">
+        <g filter="url(#soft-shadow)"><rect width="186" height="36" rx="11" fill="#161B22"/></g>
+        <rect x=".5" y=".5" width="185" height="35" rx="10.5" stroke="#3FB950" stroke-opacity=".3"/>
+        <path transform="translate(12 10.5) scale(.75)" fill-rule="evenodd" clip-rule="evenodd" d="M10 0C4.477 0 0 4.484 0 10.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0110 4.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.203 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.942.359.31.678.921.678 1.856 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0020 10.017C20 4.484 15.522 0 10 0z" fill="#E6EDF3"/>
+        <text class="sans" x="36" y="22" font-size="12" font-weight="600" fill="#E6EDF3">Pushed to main</text>
+        <text class="mono" x="174" y="22" font-size="10.5" fill="#8B949E" text-anchor="end">3f9c2a1</text>
+      </g>
     </g>
 
-    <!-- Pulsating Radiant Nucleus -->
-    <g class="prism-beating-nucleus">
-      <circle cx="750" cy="140" r="6" fill="#FFFFFF"/>
-      <circle cx="750" cy="140" r="14" stroke="rgba(255, 255, 255, 0.4)" stroke-width="1.2" fill="none"/>
-    </g>
+    <!-- ============ FINISH ============ -->
+    <path d="M80 .6h800" stroke="url(#top-edge)"/>
   </g>
-
-  <!-- ================= TWINKLING STAR POINTS ================= -->
-  <g class="star-a" transform="translate(560, 50)">
-    <path d="M0 -5 L0 5 M-5 0 L5 0" stroke="#818CF8" stroke-width="1"/>
-    <circle cx="0" cy="0" r="1" fill="#FFFFFF"/>
-  </g>
-  <g class="star-b" transform="translate(420, 58)">
-    <circle cx="0" cy="0" r="1.5" fill="#67E8F9"/>
-  </g>
-
-  <!-- ================= HERO CONTENT (Left Aligned) ================= -->
-  
-  <!-- Premium Diamond Sparkle and Minimal Monospace Tag -->
-  <g transform="translate(60, 46)">
-    <g class="sparkle-icon">
-      <path d="M 8 0 L 10.2 5.8 L 16 8 L 10.2 10.2 L 8 16 L 5.8 10.2 L 0 8 L 5.8 5.8 Z" fill="url(#sparkle-grad)"/>
-    </g>
-    <text class="font-mono" x="26" y="12" font-size="12" font-weight="600" fill="#C7D2FE" letter-spacing="1">DEV // ACTIVE</text>
-    <text class="font-mono" x="134" y="12" font-size="12" font-weight="400" fill="#475569">01</text>
-  </g>
-
-  <!-- Main Name: High-impact Platinum Chrome Specular Gradient -->
-  <g transform="translate(60, 122)" filter="url(#text-backlight)">
-    <text class="hero-title" x="0" y="0" fill="url(#name-specular)">
-      Akshat Joshi
-    </text>
-  </g>
-
-  <!-- Catchy, Premium UI Subheading with Light Sweep -->
-  <g transform="translate(60, 158)">
-    <text class="hero-sub" x="0" y="0" fill="url(#sub-light-sweep)">
-      Crafting interfaces that feel alive
-    </text>
-  </g>
-
-  <!-- ================= TECH CAPSULES DOCK (Scale 0.9) ================= -->
-  <g transform="translate(60, 200) scale(0.9)">
-    <!-- Pill 1: React -->
-    <g>
-      <rect width="84" height="30" rx="15" fill="rgba(255, 255, 255, 0.04)" stroke="rgba(255, 255, 255, 0.09)" stroke-width="1"/>
-      <circle cx="15" cy="15" r="3" fill="#61DAFB"/>
-      <text class="tag-text" x="26" y="19" fill="#F1F5F9">React</text>
-    </g>
-
-    <!-- Pill 2: TypeScript -->
-    <g transform="translate(94, 0)">
-      <rect width="112" height="30" rx="15" fill="rgba(255, 255, 255, 0.04)" stroke="rgba(255, 255, 255, 0.09)" stroke-width="1"/>
-      <circle cx="15" cy="15" r="3" fill="#3178C6"/>
-      <text class="tag-text" x="26" y="19" fill="#F1F5F9">TypeScript</text>
-    </g>
-
-    <!-- Pill 3: JavaScript -->
-    <g transform="translate(216, 0)">
-      <rect width="112" height="30" rx="15" fill="rgba(255, 255, 255, 0.04)" stroke="rgba(255, 255, 255, 0.09)" stroke-width="1"/>
-      <circle cx="15" cy="15" r="3" fill="#F7DF1E"/>
-      <text class="tag-text" x="26" y="19" fill="#F1F5F9">JavaScript</text>
-    </g>
-
-    <!-- Pill 4: HTML and CSS -->
-    <g transform="translate(338, 0)">
-      <rect width="116" height="30" rx="15" fill="rgba(255, 255, 255, 0.04)" stroke="rgba(255, 255, 255, 0.09)" stroke-width="1"/>
-      <circle cx="15" cy="15" r="3" fill="#E34F26"/>
-      <text class="tag-text" x="26" y="19" fill="#F1F5F9">HTML &amp; CSS</text>
-    </g>
-
-    <!-- Pill 5: Browser Extensions -->
-    <g transform="translate(464, 0)">
-      <rect width="154" height="30" rx="15" fill="rgba(255, 255, 255, 0.04)" stroke="rgba(255, 255, 255, 0.09)" stroke-width="1"/>
-      <circle cx="15" cy="15" r="3" fill="#A855F7"/>
-      <text class="tag-text" x="26" y="19" fill="#F1F5F9">Browser Extensions</text>
-    </g>
-  </g>
+  <rect x=".5" y=".5" width="959" height="319" rx="19.5" stroke="#fff" stroke-opacity=".08"/>
 </svg>
