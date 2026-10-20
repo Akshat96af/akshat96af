@@ -17,7 +17,7 @@
     &nbsp;&nbsp;
     <a href="https://instagram.com/_.a.k.s.h.a.t._"><img src="./assets/badge-instagram.svg" alt="Instagram" height="36" /></a>
     &nbsp;&nbsp;
-    <a href=""><img src="./assets/badge-linkedin.svg" alt="LinkedIn" height="36" /></a>
+    <img src="./assets/badge-linkedin.svg" alt="LinkedIn" height="36" />
   </p>
 
 </div>
